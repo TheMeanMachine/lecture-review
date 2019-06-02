@@ -1,5 +1,3 @@
-
-
 /*
 Gets a list of all the lectures
 @param module - the module parent of the lecture
@@ -16,8 +14,12 @@ function selectLecture(module){
                     var id = myArr[i]['id'];
                     var week = myArr[i]['week'];
                     var title = myArr[i]['title'];
+                    var completed = myArr[i]['completed'];
+                    var notes = myArr[i]['notes'];
+                    var bookmark = myArr[i]['slideBookmark'];
                     
-                    var card = cardLecture(title, week, id, module);
+                    
+                    var card = cardLecture(title, week, id, module, completed, notes, bookmark);
                     var contents = document.getElementById("module1");
                     contents.appendChild(card);
                     

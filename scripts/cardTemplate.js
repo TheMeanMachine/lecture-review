@@ -46,18 +46,24 @@ function cardTemplate(){
     return cardTemplate;
 }
 
-function cardLecture(title, week, id, module){
+function cardLecture(title, week, id, module, completed, notes, bookmark){
+    var checkText;
+    (completed == 0) ? checkText = "check_box_outline_blank" : checkText = "check_box"
+    if(bookmark == 0){
+        bookmark = null;
+    }
     var cardTemplate = document.createElement('div');
-    cardTemplate.setAttribute('weekid', id);
+    cardTemplate.setAttribute('weekid', week);
+    cardTemplate.setAttribute('lectureid', id);
     cardTemplate.setAttribute('moduleid', module);
     cardTemplate.innerHTML = `
         <div class="cHandle">
             <div class="cHandleOuter">
                 <div class="cHandleInner">
                     <div class="ch_lCheck">
-                        <div class="ch_lCheckbox" onclick="cardCheck(this)">
+                        <div class="ch_lCheckbox" name="check" check=" ` + completed + `" onclick="cardCheck(this)">
                             <i class="material-icons" style="user-select: none">
-                                check_box_outline_blank
+                                `+ checkText + `
                             </i>
                         </div>
                     </div>
@@ -94,7 +100,7 @@ function cardLecture(title, week, id, module){
                                 <div class="ccNBbookmarkOuter">
                                     <div class="ccNBbookmarkInner">
                                         Slide
-                                        <input class="ccNBbookmark" type="number" name="bookmark" value="0" onblur="updateLectureInfo(this);" min="0" max="150">
+                                        <input class="ccNBbookmark" type="number" name="bookmark" value="` + bookmark + `" onblur="updateLectureInfo(this);" min="0" max="150">
                                     </div>
                                 </div>
                                 <div class="ccNBactionOuter">
@@ -114,7 +120,7 @@ function cardLecture(title, week, id, module){
                             </div>
                         </div>
                         <div class="ccTextNotesOuter">
-                            <textarea class="ccTextNotes" name="notes" placeholder="Notes"  onblur="updateLectureInfo(this);"></textarea>
+                            <textarea class="ccTextNotes" name="notes" placeholder="Notes"  onblur="updateLectureInfo(this);"> ` + notes + `</textarea>
                         </div>
                         
                         
