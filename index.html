@@ -1,0 +1,134 @@
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./styles/menu.css">
+        <link rel="stylesheet" type="text/css" href="./styles/card.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="page">
+
+            <div class="topbar">
+                <div class="tb_outer">
+                    <div class="tb_lButton">
+                        <div class="tb_llogo">
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="tb_mText">
+                        <div class="tb_mTextInner">
+                            <div class="tb_mTextUp">
+                                Year 3
+                            </div>
+                            <div class="tb_mTextDown">
+                                Semester 2
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tb_sText">
+                        <div class="tb_sTextInner">
+                            <div class="tb_sTextUp">
+                                
+                            </div>
+                            <div class="tb_sTextDown">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="pageContents" id="pc">
+                <div class="card" id="sem1">
+                    <div class="cHandle">
+                        <div class="cHandleOuter">
+                            <div class="cHandleInner">
+                                <div class="ch_lCheck">
+                                    <div class="ch_lCheckbox" >
+                                        <i class="material-icons" style="user-select: none;">
+                                            info
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="ch_lText">
+                                    <div class="ch_lTextInner">
+                                        
+                                    </div>
+                                    <div class="ch_mTextInner">
+                                        220CT
+                                    </div>
+
+                                </div>
+                                <div class="ch_rExpand" >
+                                    <div class="ch_rExpandInner">
+                                        <div class="ch_rExpandInnerText" onclick="expandCard(this)">
+                                            <i class="material-icons" style="" >
+                                                add
+                                            </i>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>  
+                        </div>
+
+                    </div>
+                    <div class="cContents" id="module1" style="display: none">
+                        
+                        <!--For specific uses-->
+                        <div class="ccNavbar">
+                            <div class="ccNavbarInner">
+                                <div class="ccNBbookmarkOuter">
+                                    <div class="ccNBbookmarkInner" style="display: none;">
+                                        Slide
+                                        <input class="ccNBbookmark" type="number" name="" value="0" onblur="updateLectureInfo(this);" min="0" max="150">
+                                    </div>
+                                </div>
+                                <div class="ccNBactionOuter">
+                                    <div class="ccNBactionInner">
+                                        <div class="ccNBactionbut">
+                                            <i class="material-icons" id="centretext" style="" >
+                                                add
+                                            </i>
+                                        </div>
+                                        <div class="ccNBactionbut">
+                                            <i class="material-icons" id="centretext" style="" >
+                                                edit
+                                            </i>
+                                        </div>
+                                        <div class="ccNBactionbut">
+                                            <i class="material-icons" id="centretext" style="" >
+                                                delete
+                                            </i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ccTitle">
+                            Lectures
+                        </div>
+                        <div class="ccTitleUnderline">
+                            
+                        </div>
+                        <div class="ccTextNotesOuter" style="display: none;">
+                            <textarea class="ccTextNotes" name="notes" placeholder="Notes" onblur="updateLectureInfo(this);"></textarea>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="scripts/card.js"></script>
+    <script src="scripts/selector.js"></script>
+    <script src="scripts/cardTemplate.js"></script>
+</html>
