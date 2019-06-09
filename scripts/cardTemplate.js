@@ -48,10 +48,9 @@ function cardTemplate(){
 
 function cardLecture(title, week, id, module, completed, notes, bookmark){
     var checkText;
-    (completed == 0) ? checkText = "check_box_outline_blank" : checkText = "check_box"
-    if(bookmark == 0){
-        bookmark = null;
-    }
+    (completed == 1) ? checkText = "check_box_outline_blank" : checkText = "check_box";
+    (notes == "") ? notes = "" : null;
+    
     var cardTemplate = document.createElement('div');
     cardTemplate.setAttribute('weekid', week);
     cardTemplate.setAttribute('lectureid', id);
@@ -61,7 +60,7 @@ function cardLecture(title, week, id, module, completed, notes, bookmark){
             <div class="cHandleOuter">
                 <div class="cHandleInner">
                     <div class="ch_lCheck">
-                        <div class="ch_lCheckbox" name="check" check=" ` + completed + `" onclick="cardCheck(this)">
+                        <div class="ch_lCheckbox" name="check" check="` + completed + `" onclick="cardCheck(this)">
                             <i class="material-icons" style="user-select: none">
                                 `+ checkText + `
                             </i>
@@ -120,7 +119,7 @@ function cardLecture(title, week, id, module, completed, notes, bookmark){
                             </div>
                         </div>
                         <div class="ccTextNotesOuter">
-                            <textarea class="ccTextNotes" name="notes" placeholder="Notes"  onblur="updateLectureInfo(this);"> ` + notes + `</textarea>
+                            <textarea class="ccTextNotes" name="notes" placeholder="Notes"  onblur="updateLectureInfo(this);">` + notes + `</textarea>
                         </div>
                         
                         

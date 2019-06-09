@@ -1,0 +1,162 @@
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="page" style="display: none">
+            <!--<form action="http://localhost/lecRev/module/addModule.php" id="viewerForm" method="get" target="_parent">-->
+            <div class="topbar">
+                <div class="tb_outer">
+                    <div class="tb_sText">
+                            <div class="tb_sTextInner">
+                                <div class="tb_Submit" onclick="goBack()">
+                                    <i class="material-icons" style="line-height: 40px" >
+                                        arrow_back
+                                    </i>
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                    
+                    <div class="tb_mText">
+                        <div class="tb_mTextInner">
+                            <div class="tb_mTextUp">
+                                New Module
+                            </div>
+                            <div class="tb_mTextDown">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tb_sText">
+                        <div class="tb_sTextInner">
+                            <div class="tb_Submit" onclick="submitForm()">
+                                <i class="material-icons" style="line-height: 40px" >
+                                    done
+                                </i>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="pageContents" id="pc">
+                <div class="formOuter">
+                    <div class="formInner">
+                        <!-------------------
+                        Mandatory section 
+                        -------------------->
+                        <div class="fiTitle" >
+                            Mandatory
+                        </div>
+                        
+                        <div class="ccTitleUnderline">
+                            
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Module Title
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="title">
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Module Code
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="code">
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Year
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="1" max="2" name="year">
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Semester
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="1" max="2" name="sem">
+                            </div>
+                        </div>
+                        <!-------------------
+                        Optional section 
+                        -------------------->
+                        <div class="fiTitle">
+                            Optional
+                        </div>
+                        <div class="ccTitleUnderline">
+                            
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Description
+                            </div>
+                            <div class="ff_lowerBand">
+                                <textarea class="ff_TextNotes" name="notes" placeholder="" style="background: transparent" name="desc" value="" id="desc"></textarea>
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Leader
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="leader">
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Credits
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="credits">
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Exam Percentage
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="examPer">
+                            </div>
+                        </div>
+                        <div class="formField">
+                            <div class="ff_upperBand">
+                                Coursework Percentage
+                            </div>
+                            <div class="ff_lowerBand">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="cwPer">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+        </div>
+            
+    </body>
+
+    <script src="scripts/viewer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/menu.css">
+    <link rel="stylesheet" type="text/css" href="./styles/viewer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/toast.css">
+    <script src="scripts/toast.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/confirm.css">
+    <script src="scripts/confirm.js"></script>
+</html>

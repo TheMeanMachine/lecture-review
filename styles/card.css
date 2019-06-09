@@ -96,6 +96,12 @@
     text-align: center;
     margin: 0 auto;
     font-size: 1.2em;
+    border: 0;
+
+}
+
+.ch_mTextInner{
+    outline-width: 0;
 }
 
 .ch_rExpandInner{

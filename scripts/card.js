@@ -4,14 +4,14 @@ function cardCheck(card){
     var children = card.children;
     var child = children[0];
    
-    if(child.innerHTML == "check_box"){
+    if(card.getAttribute("check") == 2){
         //checked
         
         child.innerHTML = "check_box_outline_blank";
-        card.setAttribute("check", 0);
+        card.setAttribute("check", 1);
     }else{
         child.innerHTML = "check_box";
-        card.setAttribute("check", 1);
+        card.setAttribute("check", 2);
     }
     updateLectureInfo(card);
 }
@@ -50,25 +50,36 @@ function findLectureID(card){
 }
 
 function updateLectureInfo(card){
-    var lectureID = 0;
-    var notes = "";
-    var bookmark = 0;
-    var complete = 0;
-    
-    (card.getAttribute('name') == "notes") ? notes = card.value : null;
-    (card.getAttribute('name') == "bookmark") ? bookmark = card.value : null;
-    (card.getAttribute('name') == "check") ? complete = card.getAttribute("check") : null;
-    console.log(complete);
-    
-    lectureID = findLectureID(card);
-    console.log(lectureID);
     var xmlhttp = new XMLHttpRequest();
+    var lectureID = findLectureID(card);
+    var notes;
+    var bookmark;
+    var complete;
+    
+    if(card.getAttribute('name') == "notes"){
+        notes = card.value;
+        xmlhttp.open("GET", "http://localhost/lecRev/lecture/editLectureInformation.php?lectureID=" + lectureID + "&notes=" + notes, true);
+        xmlhttp.send();
+    }
+    if(card.getAttribute('name') == "bookmark"){
+        bookmark = card.value;
+        xmlhttp.open("GET", "http://localhost/lecRev/lecture/editLectureInformation.php?lectureID=" + lectureID + "&bookmark=" + bookmark, true);
+        xmlhttp.send();
+    }
+    if(card.getAttribute('name') == "check"){
+        complete = card.getAttribute("check");
+        xmlhttp.open("GET", "http://localhost/lecRev/lecture/editLectureInformation.php?lectureID=" + lectureID + "&complete=" + complete, true);
+        xmlhttp.send();
+    }
+   
+        
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+           
         }else{//Data doesn't exist
         }
-    };
-    xmlhttp.open("GET", "http://localhost/lecRev/lecture/editLectureInformation.php?lectureID=" + lectureID + "&complete=" + complete + "&bookmark=" + bookmark + "&notes=" + notes, true);//URL
-    xmlhttp.send();
+    
+    }
+    
+    
 }
