@@ -6,9 +6,30 @@
     
     
 }
-1
+.backgroundViewer{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    background: whitesmoke;
+    
+    
+}
+
+
+
+#tb_viewer{
+    background: white;
+    box-shadow: 0;
+}
+
 .formInner{
     
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .formField{

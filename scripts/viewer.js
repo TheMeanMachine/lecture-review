@@ -1,12 +1,8 @@
-function goBack(){
-    confirmThis("Confirm", "You need to confirm whether you want to confirm!", "CANCEL", "CONTINUE",function(){
-      openToast("A problem occured - please try again in a few minutes");
-    },function(){
-        openToast("no");
-    });
-}
 
-function getModules(){
+
+
+function setModuleList(){
+    //Gets all the modules and creates a list array  - not incredibly modular and needs extra work
     var xmlhttp = new XMLHttpRequest();
     
     xmlhttp.onreadystatechange = function() {
@@ -23,6 +19,7 @@ function getModules(){
                     var id =  myArr[i]['ID'];
                     var moduleString = code + " : " + title;
                     console.log(moduleString);
+
                     var option = document.createElement("option");
                     
                     option.value = id;
@@ -44,9 +41,10 @@ function getModules(){
     xmlhttp.send();
 }
 
-getModules();
+setModuleList();//temp
 
 function submitForm_lecture(){
+    //Gets all the elements' values
     var modules = document.getElementsByName("module_code")[0];
     var module_id = modules.options[modules.selectedIndex].value;
     var week = document.getElementsByName("week")[0].value;
@@ -56,6 +54,7 @@ function submitForm_lecture(){
 }
 
 function submitForm_lecture_send(module_id,week,title){
+    //Adds a new lecture
     var xmlhttp = new XMLHttpRequest();
     
     xmlhttp.onreadystatechange = function() {
@@ -63,7 +62,7 @@ function submitForm_lecture_send(module_id,week,title){
             //var myArr = JSON.parse(this.responseText);//Parses API json into key-value pairs
             console.log(this.responseText);
             if(this.responseText == ""){
-                window.history.back();
+                sendMessage("done");
             }
             
         }else if(this.status == 404 || this.status == 403){
@@ -79,6 +78,7 @@ function submitForm_lecture_send(module_id,week,title){
 }
 
 function submitForm(){
+    //Finds all of the elements' values for modules
     var code = document.getElementsByName("code")[0].value;
     var title = document.getElementsByName("title")[0].value;
     var year = document.getElementsByName("year")[0].value;
@@ -94,6 +94,7 @@ function submitForm(){
 }
 
 function submitForm_send(code, title, year, sem, desc, leader, credits, examPer, cwPer){
+    //Adds a new module to the db
     var xmlhttp = new XMLHttpRequest();
     
     xmlhttp.onreadystatechange = function() {
@@ -101,7 +102,7 @@ function submitForm_send(code, title, year, sem, desc, leader, credits, examPer,
             //var myArr = JSON.parse(this.responseText);//Parses API json into key-value pairs
             console.log(this.responseText);
             if(this.responseText == ""){
-                window.history.back();
+                sendMessage("done");
             }
             
             /*if(myArr.length > 0){//If data exists

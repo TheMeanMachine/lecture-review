@@ -22,7 +22,7 @@ function createConfirm(title,content, button1, button2){
                 var cfTop = document.createElement("div");
                 cfTop.className = "cfTop";
                     var cfclose = document.createElement("div");
-                    cfclose.className = "cfclose material-icons";
+                    cfclose.className = "cfClose material-icons";
                     cfclose.innerHTML = "close";
                     var cfTitle = document.createElement("div");
                     cfTitle.className = "cfTitle";

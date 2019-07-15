@@ -1,27 +1,25 @@
-
+ 
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
     </head>
     <body>
-        <div class="background"></div>
-        <div class="page">
+        <div class="backgroundViewer"></div>
+        <div class="pageViewer">
             <div class="viewerCard">
             <!--<form action="http://localhost/lecRev/module/addModule.php" id="viewerForm" method="get" target="_parent">-->
             
-                <div class="topbar">
-                    <div class="tb_outer">
+                <div class="topbar" >
+                    <div class="tb_outer" id="tb_viewer">
                         
                         <div class="tb_sText">
                             <div class="tb_sTextInner">
                                 
-                                <div class="tb_Submit" onclick="goBack()">
+                                <div class="tb_Submit" onclick="sendMessage('close')">
                                     <i class="material-icons" style="line-height: 40px" >
-                                        arrow_back
+                                        keyboard_arrow_down
                                     </i>
-                                </div>
+                                </div>      
                                 
                             </div>
                         </div>
@@ -100,8 +98,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="scripts/viewer.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/confirm.css">
-    <script src="scripts/confirm.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/toast.css">
-    <script src="scripts/toast.js"></script>
+   
+    <script src="scripts/viewerFrameChild.js"></script>
+    
 </html>

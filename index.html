@@ -15,7 +15,7 @@
 
             <div class="topbar">
                 <div class="tb_outer">
-                    <div class="tb_lButton">
+                    <!--<div class="tb_lButton">
                         <div class="tb_llogo">
                             
                         </div>
@@ -40,13 +40,53 @@
                                 
                             </div>
                         </div>
+                        
+                    </div>-->
+                    <div class="pageNavbar">
+                        <div class="pageNavbarInner">
+                            <div class="pageNBactionOuter">
+                                <div class="pageNBactionInner ">
+                                    <select id="years" class="page_Select" name="years">
+                                        <option value="1">Year 1</option>
+                                        <option value="2">Year 2</option>
+                                        <option value="3">Year 3</option>
+                                    </select>
+                                    
+                                    <select id="semester" class="page_Select" name="semester">
+                                        <option value="1">Semester 1</option>
+                                        <option value="2">Semester 2</option>
+                                    </select>
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
+                
             </div>
-            
+              <div class="pageNavbar">
+                        <div class="pageNavbarInner">
+                            <div class="pageNBactionOuter">
+                                <div class="pageNBactionInner ">
+                                    <div class="pageNBactionbut" >
+                                        <i class="material-icons" id="centretext" style=""  onclick="randomInspiration();">
+                                            tag_faces
+                                        </i>
+                                    </div>
+                                    <div class="pageNBactionbut" onclick="create_iframe('new','Module',this)">
+                                        <i class="material-icons" id="centretext" style="" >
+                                            add
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             <div class="pageContents" id="pc">
-                <div class="card" id="sem1">
+                
+                <!--<div class="card" >
                     <div class="cHandle">
                         <div class="cHandleOuter">
                             <div class="cHandleInner">
@@ -81,9 +121,9 @@
                         </div>
 
                     </div>
-                    <div class="cContents" id="module1" style="display: none">
+                    <div class="cContents" id="module9" style="display: none">
                         
-                        <!--For specific uses-->
+
                         <div class="ccNavbar">
                             <div class="ccNavbarInner">
                                 <div class="ccNBbookmarkOuter">
@@ -125,12 +165,26 @@
                         
                         
                     </div>
-                </div>
+                    
+                </div>-->
+                
             </div>
+            
+            <!--<div class="viewerFrameOuter">
+                <iframe class="viewerFrame" src="newModule.html" width="100%" height="500px" >
+                
+                    
+                </iframe>
+            </div>-->
         </div>
         
     </body>
-    <script src="scripts/card.js"></script>
     <script src="scripts/selector.js"></script>
     <script src="scripts/cardTemplate.js"></script>
+    <script src="scripts/viewerFrameParent.js"></script>
+     <link rel="stylesheet" type="text/css" href="styles/confirm.css">
+    <script src="scripts/confirm.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/toast.css">
+    <script src="scripts/toast.js"></script>
+    <script src="scripts/card.js"></script>
 </html>

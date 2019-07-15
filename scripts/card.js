@@ -83,3 +83,12 @@ function updateLectureInfo(card){
     
     
 }
+
+
+function randomInspiration(){
+    var inspirations = [
+        "Smile! Dianabasi loves you!", "At least you'll be dead ONE day...", "Oh... inspiration... come back another day. You're terrible today", "If you try to fail, and succeed, which have you done?", "People say nothing is impossible, but I do nothing every day... just like you now :)", "Even if you are on the right track, you’ll get run over if you just sit there.", "A diamond is merely a lump of coal that did well under pressure.", "If you hit the target every time it’s too near or too big.", "I didn’t fail the test. I just found 100 ways to do it wrong. (Hazar)" 
+    ];
+    var number = Math.floor(Math.random() * inspirations.length); 
+    openToast(inspirations[number]);
+}
