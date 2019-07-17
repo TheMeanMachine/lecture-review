@@ -26,7 +26,7 @@
                     <div class="tb_mText">
                         <div class="tb_mTextInner">
                             <div class="tb_mTextUp">
-                                New Module
+                                Edit Module
                             </div>
                             <div class="tb_mTextDown">
                                 
@@ -35,7 +35,7 @@
                     </div>
                     <div class="tb_sText">
                         <div class="tb_sTextInner">
-                            <div class="tb_Submit" onclick="submitForm('new')" id="submitter">
+                            <div class="tb_Submit" onclick="submitForm('edit')" id="submitter">
                                 <i class="material-icons" style="line-height: 40px" >
                                     done
                                 </i>
@@ -65,7 +65,7 @@
                                 Module Title
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="text" placeholder="" value="" name="title">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="title" id="title">
                             </div>
                         </div>
                         <div class="formField">
@@ -73,7 +73,7 @@
                                 Module Code
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="text" placeholder="" value="" name="code">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="code" id="code">
                             </div>
                         </div>
                         <div class="formField">
@@ -114,7 +114,7 @@
                                 Leader
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="text" placeholder="" value="" name="leader">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="leader" id="leader">
                             </div>
                         </div>
                         <div class="formField">
@@ -122,7 +122,7 @@
                                 Credits
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="credits">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="credits" id="credits">
                             </div>
                         </div>
                         <div class="formField">
@@ -130,7 +130,7 @@
                                 Exam Percentage
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="examPer">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="examPer" id="examPer">
                             </div>
                         </div>
                         <div class="formField">
@@ -138,7 +138,7 @@
                                 Coursework Percentage
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="cwPer">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="cwPer" id="cwPer">
                             </div>
                         </div>
                         
@@ -162,6 +162,7 @@
     
        
     <script src="scripts/viewerFrameChild.js"></script>
-    <script>sendMessage("created new");
+    <script>
+        sendMessage("created edit");
 </script>
 </html>

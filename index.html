@@ -45,14 +45,14 @@
                     <div class="pageNavbar">
                         <div class="pageNavbarInner">
                             <div class="pageNBactionOuter">
-                                <div class="pageNBactionInner ">
-                                    <select id="years" class="page_Select" name="years">
+                                <div class="pageNBactionInner " >
+                                    <select id="years" class="page_Select" name="years" onchange="updateModules(); setPersistence('year', this.value);">
                                         <option value="1">Year 1</option>
                                         <option value="2">Year 2</option>
                                         <option value="3">Year 3</option>
                                     </select>
                                     
-                                    <select id="semester" class="page_Select" name="semester">
+                                    <select id="semester" class="page_Select" name="semester" onchange="updateModules(); setPersistence('semester', this.value);">
                                         <option value="1">Semester 1</option>
                                         <option value="2">Semester 2</option>
                                     </select>
@@ -182,9 +182,13 @@
     <script src="scripts/selector.js"></script>
     <script src="scripts/cardTemplate.js"></script>
     <script src="scripts/viewerFrameParent.js"></script>
+    <script src="scripts/getPersistence.js"></script>
      <link rel="stylesheet" type="text/css" href="styles/confirm.css">
     <script src="scripts/confirm.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/toast.css">
     <script src="scripts/toast.js"></script>
     <script src="scripts/card.js"></script>
+    
+    
+    
 </html>

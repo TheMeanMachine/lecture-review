@@ -17,24 +17,93 @@ function sendMessage (msg) {
 // Listen to messages from parent window
 bindEvent(window, 'message', function (e) {
     var data = JSON.parse(e.data);
+    var edit = data["edit"];
+    var view = data["view"];
+    
+    
     if(data["modID"] != "undefined"){
-        var mods = document.getElementById("modules");
-        mods.value = data["modID"];
-        mods.setAttribute("disabled","");
+        if(edit == "true" || view == "true"){
+            var el = document.getElementById("submitter");
+            el.setAttribute("modID", data['modID']);    
+        }else{
+            var el = document.getElementById("modules");
+            el.value = data["modID"];
+
+            (edit)? null : el.setAttribute("disabled","") ;
+        }
+        
+        
     }
     if(data['year'] != "undefined"){
-        var year = document.getElementById("year");
-        year.value = data["year"];
-        year.setAttribute("readonly","");
+        var el = document.getElementById("year");
+        el.value = data["year"];
+        (edit == "true")?  null : el.setAttribute("readonly","");
     }
+    
+    if(data['week'] != "undefined" && data['week'] != "null"){
+        var el = document.getElementById('week');
+        el.value = data["week"];
+        
+
+    }
+    
+    if(data['title'] != "undefined"  && data['title']){
+        var el = document.getElementById('title');
+        el.value = data["title"];
+        console.log(data['title']);
+    }
+    
     if(data['sem'] != "undefined"){
-        var sem = document.getElementById("sem");
-        sem.value = data["sem"];
-        sem.setAttribute("readonly","");
+        var el = document.getElementById("sem");
+        el.value = data["sem"];
+        (edit == "true")?  null : el.setAttribute("readonly","");
+    }
+    
+    if(data['lectureid'] != "undefined"){
+        var el = document.getElementById("submitter");
+        el.setAttribute("lectureid", data['lectureid']);
+    }
+    
+    var t = "leader";
+    if(data[t] != "undefined"&& data[t] != null){
+        var el = document.getElementById(t);
+        el.value =  data[t];
+    }
+
+    
+    var t = "code";
+    if(data[t] != "undefined"&& data[t] != null){
+        var el = document.getElementById(t);
+        el.value =  data[t];
+    }
+    
+    
+    var t = "desc";
+    if(data[t] != "undefined"&& data[t] != null){
+        var el = document.getElementById(t);
+        el.value =  data[t];
+    }
+    
+    var t = "examPer";
+    if(data[t] != "undefined"&& data[t] != null){
+        var el = document.getElementById(t);
+        el.value =  data[t];
+    }
+    
+    var t = "cwPer";
+    if(data[t] != "undefined" && data[t] != null){
+        var el = document.getElementById(t);
+        el.value =  data[t];
+    }
+
+
+    var t = "credits";
+    if(data[t] != "undefined" && data[t] != null){
+        var el = document.getElementById(t);
+        el.value =  data[t];
     }
        
 });
 
-sendMessage("created");
 
 //Credit to : https://gist.github.com/pbojinov/8965299

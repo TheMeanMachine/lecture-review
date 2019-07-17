@@ -26,7 +26,7 @@
                     <div class="tb_mText">
                         <div class="tb_mTextInner">
                             <div class="tb_mTextUp">
-                                New Module
+                                View Module
                             </div>
                             <div class="tb_mTextDown">
                                 
@@ -35,9 +35,9 @@
                     </div>
                     <div class="tb_sText">
                         <div class="tb_sTextInner">
-                            <div class="tb_Submit" onclick="submitForm('new')" id="submitter">
+                            <div class="tb_Submit" onclick="sendMessage('close')" id="submitter">
                                 <i class="material-icons" style="line-height: 40px" >
-                                    done
+                                    keyboard_arrow_down
                                 </i>
                             </div>
                             
@@ -53,11 +53,7 @@
                         <!-------------------
                         Mandatory section 
                         -------------------->
-                        <div class="fiTitle" >
-                            Mandatory
-                        </div>
-                        
-                        <div class="ccTitleUnderline">
+                       
                             
                         </div>
                         <div class="formField">
@@ -65,7 +61,7 @@
                                 Module Title
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="text" placeholder="" value="" name="title">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="title" id="title" readonly>
                             </div>
                         </div>
                         <div class="formField">
@@ -73,7 +69,7 @@
                                 Module Code
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="text" placeholder="" value="" name="code">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="code" id="code" readonly>
                             </div>
                         </div>
                         <div class="formField">
@@ -81,7 +77,7 @@
                                 Year
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value=""  name="year" id="year">
+                                <input class="ff_lbInput" type="number" placeholder="" value=""  name="year" id="year" readonly>
                             </div>
                         </div>
                         <div class="formField">
@@ -89,24 +85,19 @@
                                 Semester
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value=""  name="sem" id="sem">
+                                <input class="ff_lbInput" type="number" placeholder="" value=""  name="sem" id="sem" readonly>
                             </div>
                         </div>
                         <!-------------------
                         Optional section 
                         -------------------->
-                        <div class="fiTitle">
-                            Optional
-                        </div>
-                        <div class="ccTitleUnderline">
-                            
-                        </div>
+                        
                         <div class="formField">
                             <div class="ff_upperBand">
                                 Description
                             </div>
                             <div class="ff_lowerBand">
-                                <textarea class="ff_TextNotes" name="notes" placeholder="" style="background: transparent" name="desc" value="" id="desc"></textarea>
+                                <textarea class="ff_TextNotes" name="notes" placeholder="" style="background: transparent" name="desc" value="" id="desc" readonly></textarea>
                             </div>
                         </div>
                         <div class="formField">
@@ -114,7 +105,7 @@
                                 Leader
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="text" placeholder="" value="" name="leader">
+                                <input class="ff_lbInput" type="text" placeholder="" value="" name="leader" id="leader" readonly>
                             </div>
                         </div>
                         <div class="formField">
@@ -122,7 +113,7 @@
                                 Credits
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="credits">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="credits" id="credits" readonly>
                             </div>
                         </div>
                         <div class="formField">
@@ -130,7 +121,7 @@
                                 Exam Percentage
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="examPer">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="examPer" id="examPer" readonly>
                             </div>
                         </div>
                         <div class="formField">
@@ -138,7 +129,7 @@
                                 Coursework Percentage
                             </div>
                             <div class="ff_lowerBand">
-                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="cwPer">
+                                <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="100" name="cwPer" id="cwPer" readonly>
                             </div>
                         </div>
                         
@@ -146,7 +137,7 @@
                 </div>
             </div>
             <!--</form>-->
-        </div>
+        
             
     </body>
 
@@ -162,6 +153,7 @@
     
        
     <script src="scripts/viewerFrameChild.js"></script>
-    <script>sendMessage("created new");
+    <script>
+        sendMessage("created view");
 </script>
 </html>

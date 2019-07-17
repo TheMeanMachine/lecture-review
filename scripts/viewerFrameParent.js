@@ -17,11 +17,31 @@ Creates a viewer iframe
 function create_iframe(action, type, e){
     if(type == "Lecture"){
         var currentE = e;
-        while(!currentE.hasAttribute("modID")){
+        while(!currentE.hasAttribute("title")){
             currentE = currentE.parentNode;
         }
         var modID = currentE.getAttribute("modID");
+        var week = currentE.getAttribute("week");
+        var title = currentE.getAttribute("title");
+        var lectureID = currentE.getAttribute("lectureID");
     }else if(type == "Module"){
+        if(action=="edit" || action == "view"){
+            var currentE = e;
+            while(!currentE.hasAttribute("modID")){
+                currentE = currentE.parentNode;
+            }
+            var modID = currentE.getAttribute("modID");
+            var week = currentE.getAttribute("week");
+            var code = currentE.getAttribute("code");
+            var title = currentE.getAttribute("title");
+            var lectureID = currentE.getAttribute("lectureID");
+            var desc = currentE.getAttribute("desc");
+            var leader = currentE.getAttribute("leader");
+            var credits = currentE.getAttribute("credits");
+            var examPer = currentE.getAttribute("examPer");
+            var cwPer = currentE.getAttribute("cwPer");
+        }
+        
         var year = document.getElementById("years").value;
         var sem = document.getElementById("semester").value;
     }
@@ -44,7 +64,15 @@ function create_iframe(action, type, e){
     viewerIframe.setAttribute('sem', sem);
     viewerIframe.setAttribute('src', iframeSource);
     viewerIframe.setAttribute('id', "viewerIframe");
-    
+    viewerIframe.setAttribute("week", week);
+    viewerIframe.setAttribute("title", title);
+    viewerIframe.setAttribute("lectureID", lectureID);
+    viewerIframe.setAttribute("code", code);
+    viewerIframe.setAttribute("leader", leader);
+    viewerIframe.setAttribute("credits", credits);
+    viewerIframe.setAttribute("examPer", examPer);
+    viewerIframe.setAttribute("cwPer", cwPer);
+    viewerIframe.setAttribute("desc", desc);
     viewerIframe.setAttribute('class', 'vFrame');
     viewerIframe.style.width = 100 + '%';
     if(type == "Lecture"){
@@ -79,34 +107,57 @@ function sendMessage (msg) {
 
 // Listen to message from child window
 bindEvent(window, 'message', function (e) {
-    if(e.data == "created"){
-        var modID = document.getElementById("viewerIframe").getAttribute("modID");
+    var data = e.data.split(" ");
+    if(data[0] == "created"){
+        var viewerIframe = document.getElementById("viewerIframe");
+        var modID = viewerIframe.getAttribute("modID");
+        var title = viewerIframe.getAttribute("title");
+        var week = viewerIframe.getAttribute("week");
+        var code = viewerIframe.getAttribute("code");
+        var year = viewerIframe.getAttribute("year");
+        var sem = viewerIframe.getAttribute("sem");
+        var leader = viewerIframe.getAttribute("leader");
+        var desc = viewerIframe.getAttribute("desc");
+        var credits = viewerIframe.getAttribute("credits");
+        var examPer = viewerIframe.getAttribute("examPer");
+        var cwPer = viewerIframe.getAttribute("cwPer");
+        var lectureid = viewerIframe.getAttribute("lectureid");
+        var editable;
+        (data[1] == "edit") ? editable = "true" : editable = "false";
+        var view;
+        (data[1] == "view") ? view = "true" : view = "false";
         
-        var year = document.getElementById("viewerIframe").getAttribute("year");
-        var sem = document.getElementById("viewerIframe").getAttribute("sem");
-        
-        sendMessage('{ "modID": "'+ modID +'", "year": "'+year+'", "sem": "'+sem+'" }');
+        sendMessage('{ "modID": "'+ modID +'", "title": "'+title+ '", "week": "'+week+'", "year": "'+year+'", "sem": "'+sem+'", "edit": "'+editable+'", "lectureid": "'+ lectureid +'", "code": "'+code+'", "leader" : "' + leader + '", "desc": "'+desc+'", "credits": "'+credits+'", "examPer":"'+examPer+'","cwPer":"'+cwPer+'", "view": "'+view+'"  }');
     }else if(e.data == "close"){
         closeViewer();
         
     }else if(e.data == "done"){
-        window.location.reload(false); 
+        //window.location.reload(false);
+        closeViewer(false);
+        updateModules();
     }
     
 });
 
-function closeViewer(){
+function closeViewer(ask){
     
     var viewerIframe = document.getElementById("viewerIframe");
     //Stops the person from going back without making sure
-    confirmThis("Are you sure?", "All changes will be lost", "CANCEL", "CONTINUE",function(){
+    if(ask){
+        confirmThis("Are you sure?", "All changes will be lost", "CANCEL", "CONTINUE",function(){
         console.log("closing");
         viewerIframe.style.marginBottom = "-1000px";
 
-        setTimeout(function(){ viewerIframe.parentNode.parentNode.removeChild(viewerIframe.parentNode); },100); 
-    },function(){
+        setTimeout(function(){ viewerIframe.parentNode.parentNode.removeChild(viewerIframe.parentNode); },500); 
+            },function(){
 
-    }); 
+        });
+    }else{
+        viewerIframe.style.marginBottom = "-1000px";
+
+        setTimeout(function(){ viewerIframe.parentNode.parentNode.removeChild(viewerIframe.parentNode); },500); 
+    }
 }
+     
     
 //Credit to : https://gist.github.com/pbojinov/8965299 

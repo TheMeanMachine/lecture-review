@@ -30,20 +30,23 @@ function expandCard(card){
         //contents not shown
         child.innerHTML = "remove";
         contents.style.display = "block";
+        cardOuter.setAttribute("expanded","true");
     }else{
         contents.style.display = "none";
         child.innerHTML = "add";
+        cardOuter.setAttribute("expanded","false");
     }
     
+   
     
 }
 
 function findLectureID(card){
     var moduleID;
-    while(!card.hasAttribute("lectureID")){
+    while(!card.hasAttribute("lectureid")){
         
         card = card.parentElement;
-        moduleID = card.getAttribute("lectureID");
+        moduleID = card.getAttribute("lectureid");
     }
     
     return moduleID;

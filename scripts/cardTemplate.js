@@ -1,5 +1,5 @@
 
-function cardModule(code, title, year, sem, id){
+function cardModule(code, title, year, sem, id, desc, leader, credits, examPer, cwPer){
     var cardTemplate = document.createElement('div');
     cardTemplate.setAttribute('class', 'card');
     cardTemplate.setAttribute('sem', sem);
@@ -7,6 +7,11 @@ function cardModule(code, title, year, sem, id){
     cardTemplate.setAttribute('code', code);
     cardTemplate.setAttribute('title', title);
     cardTemplate.setAttribute('modID', id);
+    cardTemplate.setAttribute('leader', leader);
+    cardTemplate.setAttribute('credits', credits);
+    cardTemplate.setAttribute('examPer', examPer);
+    cardTemplate.setAttribute('cwPer', cwPer);
+    cardTemplate.setAttribute('desc', desc);
     
     var titleString = code + " : " + title;
 
@@ -15,7 +20,7 @@ function cardModule(code, title, year, sem, id){
                         <div class="cHandleOuter">
                             <div class="cHandleInner">
                                 <div class="ch_lCheck">
-                                    <div class="ch_lCheckbox" >
+                                    <div class="ch_lCheckbox" onclick="create_iframe('view','Module',this)">
                                         <i class="material-icons" style="user-select: none;">
                                             info
                                         </i>
@@ -63,16 +68,16 @@ function cardModule(code, title, year, sem, id){
                                                 add
                                             </i>
                                         </div>
-                                        <div class="ccNBactionbut">
+                                        <div class="ccNBactionbut" onclick="create_iframe('edit','Module',this)">
                                             <i class="material-icons" id="centretext" style="" >
                                                 edit
                                             </i>
                                         </div>
-                                        <div class="ccNBactionbut">
+                                        <!--<div class="ccNBactionbut">
                                             <i class="material-icons" id="centretext" style="" >
                                                 delete
                                             </i>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -83,8 +88,10 @@ function cardModule(code, title, year, sem, id){
                         <div class="ccTitleUnderline">
                             
                         </div>
+                        <p style="text-align: center; height: 50px; line-height:50px; padding: 0; margin: 0;" id="nolectures`+id+`">No lectures to show</p>
                         <div class="ccTextNotesOuter" style="display: none;">
                             <textarea class="ccTextNotes" name="notes" placeholder="Notes" onblur="updateLectureInfo(this);"></textarea>
+
                         </div>
                         
                         
@@ -97,7 +104,7 @@ function cardModule(code, title, year, sem, id){
 function cardTemplate(){
     var cardTemplate = document.createElement('div');
     cardTemplate.setAttribute('class', 'card');
-
+    
     cardTemplate.innerHTML = `
         <div class="cHandle">
             <div class="cHandleOuter">
@@ -136,20 +143,23 @@ function cardTemplate(){
 
                 </div>
             </div>
+            
         </div>
     `;
     return cardTemplate;
 }
 
-function cardLecture(title, week, id, module, completed, notes, bookmark){
+function cardLecture(title, week, id, module, completed, notes, bookmark, lectureid){
     var checkText;
     (completed == 1) ? checkText = "check_box_outline_blank" : checkText = "check_box";
     (notes == "") ? notes = "" : null;
     
     var cardTemplate = document.createElement('div');
     cardTemplate.setAttribute('weekid', week);
-    cardTemplate.setAttribute('lectureid', id);
-    cardTemplate.setAttribute('moduleid', module);
+    cardTemplate.setAttribute('lectureid', lectureid);
+    cardTemplate.setAttribute('modid', module);
+    cardTemplate.setAttribute('title', title);
+    cardTemplate.setAttribute('week', week);
     cardTemplate.innerHTML = `
         <div class="cHandle">
             <div class="cHandleOuter">
@@ -199,12 +209,12 @@ function cardLecture(title, week, id, module, completed, notes, bookmark){
                                 </div>
                                 <div class="ccNBactionOuter">
                                     <div class="ccNBactionInner">
-                                        <div class="ccNBactionbut">
+                                        <div class="ccNBactionbut" onclick="create_iframe('edit','Lecture',this)">
                                             <i class="material-icons" id="centretext" style="" >
                                                 edit
                                             </i>
                                         </div>
-                                        <div class="ccNBactionbut">
+                                        <div class="ccNBactionbut" onclick="deleteLecture(this)">
                                             <i class="material-icons" id="centretext" style="" >
                                                 delete
                                             </i>

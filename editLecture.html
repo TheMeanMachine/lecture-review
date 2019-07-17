@@ -28,7 +28,7 @@
                             <div class="tb_mTextInner">
                                 
                                 <div class="tb_mTextUp">
-                                    New Lecture
+                                    Edit Lecture
                                 </div>
                                 <div class="tb_mTextDown">
 
@@ -37,7 +37,7 @@
                         </div>
                         <div class="tb_sText">
                             <div class="tb_sTextInner">
-                                <div class="tb_Submit" onclick="submitForm_lecture('new')" id="submitter">
+                                <div class="tb_Submit" id="submitter" onclick="submitForm_lecture('edit')">
                                     <i class="material-icons" style="line-height: 40px" >
                                         done
                                     </i>
@@ -68,7 +68,7 @@
                                     Title
                                 </div>
                                 <div class="ff_lowerBand">
-                                    <input class="ff_lbInput" type="text" placeholder="" value="" name="title">
+                                    <input class="ff_lbInput" type="text" placeholder="" value="" name="title" id="title">
                                 </div>
                             </div>
                             <div class="formField">
@@ -76,7 +76,7 @@
                                     Week
                                 </div>
                                 <div class="ff_lowerBand">
-                                    <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="40" name="week">
+                                    <input class="ff_lbInput" type="number" placeholder="" value="" min="0" max="40" name="week" id="week">
                                 </div>
                             </div>
 
@@ -100,7 +100,7 @@
     <script src="scripts/viewer.js"></script>
    
     <script src="scripts/viewerFrameChild.js"></script>
-    <script>sendMessage("created new");
+    <script>sendMessage("created edit");
         setModuleList();
 </script>
 </html>
